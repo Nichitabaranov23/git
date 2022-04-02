@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  /* padding: 0;
+  margin: 0; */
+}
+
+html {
+  font-size: 15px;
+  font-family: fantasy;
+}
+
+body {
+  background-color: rgb(185, 183, 181);
+  background-image: url(img/south-park-4.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.header {
+  background-color: gold;
+  font-size: 4rem;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  min-height: calc(100vh - 100px);
+  align-items: center;
+  display: flex;
+}
+.carousel {
+  position: relative;
+  background-color: green;
+  display: flex;
+  height: 100px;
+  overflow: hidden;
+  max-width: 100%;
+  border-radius: 90%;
+}
+.carousel::before,
+.carousel::after {
+  position: absolute;
+  content: "";
+  /* background-color: darkblue; */
+  width: 200px;
+  height: 100%;
+  top: 0;
+  background: linear-gradient(to right, red 0%, transparent 100%);
+}
+
+.carousel::before {
+  left: 0;
+  z-index: 1;
+}
+
+.carousel::after {
+  right: 0;
+  z-index: 1;
+  transform: rotate(180deg);
+}
+
+.slide {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  animation: slideshow 10s linear infinite;
+}
+.slide__image {
+  height: calc(100% - 40px);
+  margin: 0 40px;
+}
+
+@keyframes slideshow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
